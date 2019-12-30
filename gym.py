@@ -1,7 +1,5 @@
 import os
 import unittest
-import click
-from flask.cli import with_appcontext
 
 from app import blueprint
 from flask_cors import CORS, cross_origin
