@@ -28,7 +28,7 @@ manager.add_command('db', MigrateCommand)
 
 @manager.command
 def run():
-    app.run(host="0.0.0.0", port="80")
+    app.run(host="0.0.0.0", port="80", ssl_context='adhoc')
     
 @cross_origin(supports_credentials=True, debug = True)
 

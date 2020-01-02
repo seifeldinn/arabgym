@@ -35,8 +35,12 @@ def get_all_users():
 
 def deleteUser(public_id):
     initialMember = GymUsers.query.filter(and_(*[GymUsers.id.like(public_id)])).first()
-
     db.session.delete(initialMember)
+    
+    memberSubs = Gym_Subs.query.filter(and_(*[Gym_Subs.member_id.like(public_id)])).all()
+    for membersub in memberSubs:
+        db.session.delete(membersub)
+
     db.session.commit()
 
     return "Member Deleted"
